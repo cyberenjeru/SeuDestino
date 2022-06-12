@@ -26,7 +26,7 @@ const respostas = [
 function fazerPergunta() {
 
   if(inputPergunta.value == "") {
-    alert("Digite sua pergunta")
+    alert("Digite sua pergunta, miau!")
     return
   }
 
