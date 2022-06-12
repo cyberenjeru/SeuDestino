@@ -22,22 +22,30 @@ const respostas = [
     "Peixe esperto come a isca e caga no anzol.",
     "Canário na muda não canta.",
 ]
+
+// clicar em fazer pergunta
 function fazerPergunta() {
 
-    if(inputPergunta.value == "") {
-        alert("Digite sua pergunta")
-        return
-    }
+  if(inputPergunta.value == "") {
+    alert("Digite sua pergunta")
+    return
+  }
 
-    buttonPerguntar.setAttribute("disabled", true)
-    const pergunta = "<div>" + inputPergunta.value + "</div>"
+  buttonPerguntar.setAttribute("disabled", true)
 
-    const totalRespostas = respostas.length
-    const numeroAleatorio = Math.floor(Math.random() * totalRespostas)
-    elementoResposta.innerHTML = pergunta + respostas[numeroAleatorio]
-    elementoResposta.style.opcaity = 1;
-    setTimeout(function() {
-        elementoResposta.style.opacity = 1;
-        buttonPerguntar.removeAttribute("disabled")
-    }, 3000)
+  const pergunta = "<div>" + inputPergunta.value + "</div>"
+
+  // gerar numero aletorio
+  const  totalRespostas = respostas.length
+  const numeroAleatorio = Math.floor(Math.random() * totalRespostas)
+
+  elementoResposta.innerHTML = pergunta + respostas[numeroAleatorio]
+
+  elementoResposta.style.opacity = 1;
+
+  // sumir a resposta depois de 3 segundos
+  setTimeout(function() {
+    elementoResposta.style.opacity = 0;
+    buttonPerguntar.removeAttribute("disabled")
+  }, 3000)
 }
